@@ -1,6 +1,6 @@
 x = y = direction = 0
 moves = open('input.txt', 'r').readline().strip().split(', ')
-visited = set()
+visited = set((0, 0))
 
 for move in moves:
 	if move[0] == 'L':
