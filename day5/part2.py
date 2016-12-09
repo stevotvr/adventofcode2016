@@ -1,9 +1,14 @@
 import hashlib
+import os
+
+os.system('cls')
 
 code = b'abbhdwsy'
 index = 0
 password = [None, None, None, None, None, None, None, None]
 
+print('Decrypting...')
+print('|'.join([' '] * 8))
 while None in password:
     h = hashlib.md5()
     h.update(code)
@@ -19,6 +24,7 @@ while None in password:
             continue
         if password[pos] == None:
             password[pos] = hashed[6]
+        print('\033[2;' + str((pos * 2) + 1) + 'H' + password[pos])
 
-print(''.join(password))
+print('Ta-da! Your password is:', ''.join(password))
 input()
