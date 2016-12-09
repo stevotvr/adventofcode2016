@@ -9,7 +9,7 @@ while None in password:
     h.update(code)
     h.update(bytes(str(index), 'utf-8'))
     hashed = h.hexdigest()
-    index = index + 1
+    index += 1
 
     if hashed[0:5] == '00000':
         if not hashed[5].isdigit():

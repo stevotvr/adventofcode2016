@@ -12,7 +12,7 @@ while len(password) < 8:
     if hashed[0:5] == '00000':
         password.append(hashed[5])
 
-    index = index + 1
+    index += 1
 
 print(''.join(password))
 input()

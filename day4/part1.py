@@ -19,7 +19,7 @@ for line in open('input.txt', 'r'):
             break
 
     if valid:
-        total = total + int(sector)
+        total += int(sector)
 
 print(total)
 input()

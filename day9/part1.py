@@ -10,7 +10,7 @@ while i < len(compressed):
         i = markerEnd + chars + 1
     else:
         uncompressed.append(compressed[i])
-        i = i + 1
+        i += 1
 
 print(len(uncompressed))
 input()

@@ -20,7 +20,7 @@ for line in open('input.txt', 'r'):
     hypernet = ''.join(hypernet)
     for aba in abas:
         if aba[1] + aba[0] + aba[1] in hypernet:
-            count = count + 1
+            count += 1
             break
 
 print(count)

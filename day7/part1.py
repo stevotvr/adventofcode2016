@@ -17,7 +17,7 @@ for line in open('input.txt', 'r'):
             else:
                 valid = True
     if valid:
-        count = count + 1
+        count += 1
 
 print(count)
 input()
