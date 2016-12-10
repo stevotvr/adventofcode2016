@@ -1,3 +1,8 @@
+import os
+import time
+
+os.system('cls')
+
 rows = 6
 cols = 50
 
@@ -24,6 +29,8 @@ for line in open('input.txt', 'r'):
             colCopy[(i + int(b)) % rows] = grid[i][int(a)]
         for i in range(rows):
             grid[i][int(a)] = colCopy[i]
+    print('\033[1;1H' + '\n'.join([''.join(['█' if cell else '░' for cell in row]) for row in grid]))
+    time.sleep(0.05)
 
-print(*[''.join(['X' if cell else ' ' for cell in row]) for row in grid], sep='\n')
+print('Done!')
 input()
