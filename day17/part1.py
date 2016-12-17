@@ -18,18 +18,15 @@ def getValidDirections(x, y, path):
         dirs.append((x + 1, y, path + tuple('R')))
     return dirs
 
-visited = set()
-stack = [(0, 0, ())]
 valid = set()
+stack = [(0, 0, ())]
 while stack:
     state = stack.pop()
     if state[0] == state[1] == 3:
         valid.add(''.join(state[2]))
         continue
-    visited.add(state)
     for dir in getValidDirections(*state):
-        if dir not in visited:
-            stack.append(dir)
+        stack.append(dir)
 
 print(sorted(valid, key=len)[0])
 input()
