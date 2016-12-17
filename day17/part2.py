@@ -4,9 +4,7 @@ inp = 'yjjvjgan'
 openChars = 'bcdef'
 
 def getValidDirections(x, y, path):
-    m = md5()
-    m.update(bytes(inp + ''.join(path), 'utf-8'))
-    hash = m.hexdigest()
+    hash = md5(bytes(inp + ''.join(path), 'utf-8')).hexdigest()
     dirs = []
     if y > 0 and hash[0] in openChars:
         dirs.append((x, y - 1, path + tuple('U')))
@@ -25,8 +23,7 @@ while stack:
     if state[0] == state[1] == 3:
         valid.add(''.join(state[2]))
         continue
-    for dir in getValidDirections(*state):
-        stack.append(dir)
+    stack += getValidDirections(*state)
 
 print(max([len(x) for x in valid]))
 input()
