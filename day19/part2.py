@@ -1,13 +1,28 @@
 inp = 3004953
 
-elves = list(range(1, inp + 1))
-i = 0
-while len(elves) > 1:
-    index = (i + int(len(elves) / 2)) % len(elves)
-    elves.pop(index)
-    if index < i:
-        i -= 1
-    i = (i + 1) % len(elves)
+class Elf:
+    def __init__(self, num):
+        self.num = num
+        self.prev = None
+        self.next = None
 
-print(elves[0])
+    def remove(self):
+        self.prev.next = self.next
+        self.next.prev = self.prev
+
+elves = list(map(Elf, range(1, inp + 1)))
+for i in range(inp):
+    elves[i].prev = elves[(i - 1) % inp]
+    elves[i].next = elves[(i + 1) % inp]
+
+count, current, across = inp, elves[0], elves[inp // 2]
+while current != across:
+    across.remove()
+    across = across.next
+    if count % 2 == 1:
+        across = across.next
+    count -= 1
+    current = current.next
+
+print(current.num)
 input()
