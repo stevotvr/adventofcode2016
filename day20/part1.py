@@ -5,7 +5,9 @@ ranges.sort()
 
 lowest = 0
 for l, r in ranges:
-    if l <= lowest <= r:
+    if l > lowest:
+        break
+    if lowest <= r:
         lowest = r + 1
 
 print(lowest)
