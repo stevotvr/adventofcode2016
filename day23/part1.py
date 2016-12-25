@@ -2,8 +2,6 @@ addr = 0
 registers = {'a': 7, 'b': 0, 'c': 0, 'd': 0}
 
 instructions = [line.split() for line in open('input.txt', 'r')]
-toggled = set()
-
 toggleMap = {'inc': 'dec', 'dec': 'inc', 'tgl': 'inc', 'cpy': 'jnz', 'jnz': 'cpy'}
 
 def cpy(x, y):
